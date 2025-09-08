@@ -51,3 +51,33 @@ router.put('/:id', validateCompany, async (req, res) => {
         }
 });
 
+router.get('/:id', async (req, res) => {
+    try {
+        const db = getDb();
+        const collection = db.collection('companies');
+        const companies = await collection.find().toArray();
+        res.json(companies);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'server error' });
+    }
+});
+
+router.delete('/:id', async (req, res) => {
+    try {
+        const db = getDb();
+        const collection = db.collection('companies');
+        const result = await collection.deleteOne({ _id: new ObjectId(req.params.id) });
+        if(result.deletedCount === 0) {
+            return res.status(404).json({ error: 'Company not found' });
+        }
+        else{
+            res.json({ message: 'Company deleted' });
+        }
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'server error' });
+    }
+});
+
+module.exports = router;
