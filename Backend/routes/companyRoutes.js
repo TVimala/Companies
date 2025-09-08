@@ -51,12 +51,29 @@ router.put('/:id', validateCompany, async (req, res) => {
         }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const db = getDb();
         const collection = db.collection('companies');
         const companies = await collection.find().toArray();
         res.json(companies);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'server error' });
+    }
+});
+
+router.get('/:id', async (req, res) => {
+    try {
+        const db = getDb();
+        const collection = db.collection('companies');
+        const company = await collection.findOne({ _id: new ObjectId(req.params.id) });
+        if(!company) {
+            return res.status(404).json({ error: 'Company not found' });
+        }
+        else{
+            res.json(company);
+        }
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'server error' });
