@@ -13,7 +13,8 @@ async function createCompany(req, res) {
     const db = getDb();
     const collection = db.collection('companies');
     const result = await collection.insertOne(req.body);
-    res.status(201).json({ message: 'Company created', companyId: result.insertedId });
+    const createdCompany = await collection.findOne({ _id: result.insertedId });
+res.status(201).json(createdCompany);
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'server error' });

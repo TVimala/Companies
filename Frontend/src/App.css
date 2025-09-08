@@ -1,42 +1,99 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f6fc; /* light background */
+  color: #0d1117; /* dark text */
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #ffffff; 
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.3); 
+}
+
+h1 {
   text-align: center;
+  color: #0066cc; /* blue heading */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.search-bar {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1; 
+  background: #ffffff; /* white input */
+  color: #0d1117; /* dark text */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.form input {
+  padding: 8px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #0d1117;
+  flex: 1;
 }
 
-.card {
-  padding: 2em;
+.form input:focus {
+  outline: none;
+  background: #ffffff;
+  color: #0d1117;
+  border: 1px solid #0066cc; /* blue focus border */
 }
 
-.read-the-docs {
-  color: #888;
+.form button {
+  background: #0066cc; /* blue button */
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  transition: 0.2s;
+}
+
+.form button:hover {
+  background: #0055aa; /* darker blue on hover */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+table th, table td {
+  border: 1px solid #cbd5e1; /* light border */
+  padding: 10px;
+  text-align: left;
+}
+
+table th {
+  background: #e6f0fa; /* light blue header */
+  color: #0066cc; /* blue text */
+}
+
+.delete-btn {
+  background: #ff4c4c; /* red delete button */
+  border: none;
+  padding: 6px 12px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.delete-btn:hover {
+  background: #cc0000;
 }
