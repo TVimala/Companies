@@ -1,5 +1,5 @@
 require('dotenv').config();
-const {connect, getDb} = require('../utils/db');
+const {connectDB, getDb} = require('../utils/db');
 const sample=[
     {
     name: "Nimbus Cloud",
@@ -26,7 +26,7 @@ const sample=[
 ];
 async function run(){
     try{
-        await connect(process.env.MONGODB_URI);
+        await connectDB(process.env.MONGODB_URI);
         const db=getDb();
         const collection=db.collection('companies');
         const result=await collection.insertMany(sample);
