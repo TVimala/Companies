@@ -86,9 +86,7 @@ frontend/
     ```bash
     npm start
     ```
-
-API will run on: [http://localhost:5000/api/companies](http://localhost:5000/api/companies)
-
+    
 ---
 
 ### 🔹 Frontend
